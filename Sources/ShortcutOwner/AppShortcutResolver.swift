@@ -111,7 +111,7 @@ import ApplicationServices
         // Convert AX mods to NSEvent.ModifierFlags
         // AX modifiers: 0=cmd, 1=shift, 2=opt, 3=ctrl (bitmask)
         var axMods: NSEvent.ModifierFlags = []
-        if (modsInt & 0) == 0 { axMods.insert(.command) } // This is tricky, AX docs say it's usually just implied
+        axMods.insert(.command) // Command is implicit for all menu shortcuts
         if (modsInt & 1) != 0 { axMods.insert(.shift) }
         if (modsInt & 2) != 0 { axMods.insert(.option) }
         if (modsInt & 4) != 0 { axMods.insert(.control) }

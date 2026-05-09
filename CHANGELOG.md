@@ -3,6 +3,11 @@
 All notable changes to ShortcutOwner are documented here.  
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.1] - 2026-05-09
+
+### Fixed
+- `AppShortcutResolver.isMatch()`: removed broken `(modsInt & 0) == 0` check that always evaluated to true, causing Command modifier to be inserted unconditionally. Command is now correctly treated as implicit for all AX menu item shortcuts per the Accessibility API specification.
+
 ## [1.0.0] - 2025-05-09
 
 ### Added
