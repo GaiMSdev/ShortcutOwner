@@ -79,6 +79,17 @@ ShortcutOwner.shared.resolve(keyCode: 35, modifiers: [.command, .shift]) { resul
 }
 ```
 
+### Cache invalidation
+
+ShortcutOwner caches results in memory. If the user may have changed shortcuts (e.g. visited System Settings), clear the cache before resolving:
+
+```swift
+ShortcutOwner.shared.clearCache()
+ShortcutOwner.shared.resolve(keyCode: 35, modifiers: [.command, .shift]) { result in
+    // fresh result
+}
+```
+
 ### Display-ready strings
 
 ```swift
