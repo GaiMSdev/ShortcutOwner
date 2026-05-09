@@ -96,6 +96,12 @@ import AppKit
         appResolver.requestPermission()
     }
 
+    /// Clears the in-memory cache. Call this when the user changes system shortcut settings
+    /// so the next resolve() re-scans rather than returning a stale cached result.
+    @objc public func clearCache() {
+        cache.removeAll()
+    }
+
     /// Converts a macOS VK keycode to a human-readable key name.
     @objc public static func keyName(for keyCode: UInt16) -> String {
         return KeyCodeMap.keyName(for: keyCode)
